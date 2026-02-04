@@ -1,0 +1,389 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Workspace Hub - British Sugar</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; -webkit-font-smoothing: antialiased; }
+
+  body {
+    min-height: 100vh;
+    background: #f8f9fa;
+    color: #2d3748;
+    font-family: 'Segoe UI', system-ui, sans-serif;
+    padding: 0;
+  }
+
+  /* Header bar */
+  .top-bar {
+    background: white;
+    border-bottom: 3px solid #8BC53F;
+    padding: 16px 32px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+  }
+
+  <div class="logo-area">
+    <img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAIYAAAAyCAIAAAAWQDSlAAABCGlDQ1BJQ0MgUHJvZmlsZQAAeJxjYGA8wQAELAYMDLl5JUVB7k4KEZFRCuwPGBiBEAwSk4sLGHADoKpv1yBqL+viUYcLcKakFicD6Q9ArFIEtBxopAiQLZIOYWuA2EkQtg2IXV5SUAJkB4DYRSFBzkB2CpCtkY7ETkJiJxcUgdT3ANk2uTmlyQh3M/Ck5oUGA2kOIJZhKGYIYnBncAL5H6IkfxEDg8VXBgbmCQixpJkMDNtbGRgkbiHEVBYwMPC3MDBsO48QQ4RJQWJRIliIBYiZ0tIYGD4tZ2DgjWRgEL7AwMAVDQsIHG5TALvNnSEfCNMZchhSgSKeDHkMyQx6QJYRgwGDIYMZAKbWPz9HbOBQAAASwklEQVR4nO1baZRV1ZXe+5xzxzdXFa9GioJCZhBEcULUBIyIxkQTtLWNwT+JWSsriUbaqGljJ90akyyXaaeYzqxmdUwcOrEVFcEBR0AEZChmqHl69d6rN9zhnN0/blVZDFUUaBsqi2+99dZ799x77j7nO2fvffY+92Imk0FEGJ0golEq/DCSM03TRmmrGGNCiL+3FMcJTdOGKhJNTU3RaNS2baXUpynTxwTnPJ1OO46TTCallH9vcY4BiCilbGlpqaysPOIJwrbtcDhsGAYRfcrCfRwwxgBASmlZ1ugaTIiolAqHw0OekM/nLcv6NGU6CQAoFou+7x+xiEkpR9coG4zRNbMHYyg+AIB9mnJ84hiljgkMK/mxeiwEAASEAABBpaO1U05YjIgSAgWkABkCAwAcRAOBBCJEfpKbTwpHoYRIAQICA2QAoJTjym6l8ggoeFjwEkQRcEEgEXC0a8ITAUNSQkBAhMgAoDv3YVPqpc7MGzlnG1E7p16NgSUiYb08as2Ihc+PRhZrWi0AAEgA/mkJ/48JzGaztm0Hbv4AiFRAxoHUGx8ceLg9s0qqLp37GgNDoIFSZ0xnTEepI+kMQnpZLHJFrPQmTZ8MoADwpB4bHrlcbih38QiUKJIMecFNrdrxg4a2PwvM6xx0zmzNNLgQXHLKCSjqnBsMDcZ1pnT0BBUtURIpvdVO3BJUc1KJDYNhKDlUcQV8tGW2/GXTN3rym2yhh4yKUrvO1GxSPaRSBGmgvKKiL0EAElpADJEzEQdwC53LZfHtUPmvGYudZOX4cNAsCfRVY/qDx9ZfX/RaYnqkLn5GSIiki5uJMmERMTRbY6hz1JAz9MBvRbmPQ84WtsaEjqAzDVUXN88PVz3DWByATmqwI2JEiivgI5VvfOSdL2edPeWhcVNKF3Tm3i+6jTXxuaYwXK/F9Q8QdRtItpaIWpNj9gwNdc9Z7+Zf1Jhn8rAGkjGNZI+wLw5XPo2AcNI/PhJGSokC9ct3v7q9c8W46LTJpfMbOp4qsaonlX2mueflnsJ6JdM6h6gZD4moQA8pZSCrLP3nktiXpHcgl/oJ83cYIsagiGIcQkjYC+2yuz+mD6ZIImDgaxxWpACAHakIgCRJBvyEXd4f3ZYQKET21t4/bmp7sSY6ob7k3IbOFVGztjo2Z0PTo0q2WcKclLxuQnJpSfhUXZQQKddr6sk8n8k+VdDfS8SvC4UvTDdfTd564HHl7tCjy/zCq17hTc0652CjQuogUQgAhup0AGD4EZ2HcDAEGQGQ41D+PRFJRAbAPlp1nUjAbDZrWRbnPO+lf/zqpb1u8xnVl+bd5u7c9nGx6c3pNwQWS8yaBZN+Wp347OHXS9nT2vY9QyTLknf5/oFM40VMtgAy5OVa+Brlbg1VPokjsPMEhIfpNyK5vuXlUntsXXzawAlEFMQPtna865M3I3nuoOhOXz0Zp+uFHb+bW/WZ+pLZAw79CYWjzBICBcDXNv1vY7bh1PL5GjM7encAFRvT7yKpiDluyaw/R606IgkAg5pHRJLzeHXVwx1ty7Pp30Vi14fG3J9vuRKZrdxdCEig/OK7mjkPQBEhInbkGn//wV2WHnFl0ZUOA1YZGX9h3VVVkXoCIlIIiIhS+Qx5qth+12tXn1W95LbzHlMk3295ZXf3piumfZOBUEQPrb2210s9umSdxs3gWgAgUoyJtNP1h83/FjHj4xOzJPkcOEMezEipijuaftiZfQVAAZj1Fd+qLLmSyAPkA9PlkNlDJINroW82I/TdjgCgP85EA9wTyY8TYRIEfUv0d5v+amuRitDEnmJjwcuYggMAAi6c8p9Rq06Rx/CQ3GQgHwFQWfnd3W23yFCbHlriWPNV8XVghldcI+yLvd6nA0oAOAEZ3LL16Mo9j88qv2ByydxeL71679Ov7vvzXef/pTIyHvvVFGcaAJRYlT+84OkSq4KIOIoXdv22M9+ydMbNAAAI3znroaKf17gZ9EXftcgBgCGLGqWGsBkyhvrACELE9buW5pz902r+XRPJ3sJmwUMAgAc3bfCwAwDEQ2whAeDggwQKgQ0cwSF15ggpIeKMdxda9vZsqghNMEW4M583tDBQ0fGzsyuvqoqfrcg/jI+P5AdQCDwUvtQpvGlHvijsRU5hJfJS5awVJbd5+TeJHEQdERWpqFn6panfXr33T+fUfH7hhGsA4OyaJXesunxT++sJq3xd84vV0Ym10Smr9z1ZFZkgmMGQMdQAaGPr646f15h4u/FvyVCtxvSs0xUzxkjlcyaKfn5dy0td+eaQFju9aiFHLkn6yt3Y9vqenk1jo5NPLV/AmVZwdnekn79g5nbbqAeARHhe0IZU7xrO7Kg9h0AhYCq7hnE7Zp8WjPT29Avp3FoEFg/PS4TP4swuuo0d6ZUFd6/gsYrEZbYxseg2dqRXj4ktIKDGzsfHll1v6tXHtwYQwUDYn97W6/ZUlp/vkWuKaJdydIaIYlrVUjp6vRyAdOu0Qu/zAKAZZ7igAyDJNMm0Zl9Isg1Fbf/cp6zbQyAl9eVw4uYYRdLSwprix39tuKPUKi+1qj5of/0rM+5oze17atv9n6n7p5vO/sX/NDzSmtujae33G390Qe2VUaPsl xtuq47U33fRqu5C6z1rvtrrdtfFZjRmdyqSp1UttETome0PWjyic/2JnntOr1z47TMfYcxUJFO9bwWUKPKAFGPGlgPftY3xcyY8QeQhGlsbl5tG3WkTnvBleu3Opbe7fncxfRKBere33je+0vzf+aU3VGw/uDrefrh0uvUP6itv3dfx60x+Q8Sa2pVZtbXx++dMeVGwREPzf+xp/zkDxXiiqmQpHO+iTEgpgaA9tw8Ay6yxnspYWtSTRYEiplckw9OHcYcGARmLCv0UAGBaDbIQgQIA8vcLYw6p4uDzEZEzrSnbsLn9DUcWXtr92MzkeadXLrK0yLfPfPCHr11VGa7/zWWbTBFCxK2dbwd+7B0Lnrj3zWWdheZ7P7siCDHsTm/a0vk2Z9pr+55qye781WUbdWErUL50OvJNnnInR6Z856yHDWG/sPM3j6y/5ZKJN0xPzq9N3vjejutSve+MS34tYs0I+kywEGf2R53CQpzpALB5/zcdv/38GeuDvu3KrvJkDwBMqrp9QDut3Xl5Q/OdZ056aXrtXWu2LT1v2nPJ2CV9TR2aEaXUUA66aGpuDhuxXj9lilDULOspFJDbUnlEaGmluoj0VX50MN2YBQAIGgAHkABAKossRio1+Dwi0rn5YfuaAz3bXeW09O6pCNe29O6ZkJhFJIlw0YTrLC1CpABQgRzkmQz8CKxon0mPGPG8n/1rw6PnjbsiGarVuUVEvnLnVi0yhA0AU8ecqXMz7XQBwMzaB+L26bta793T9kAydvGsuocto06BH4yhvv4CiagDqObuP50+8SkAlKrAUFPk9RlwkAfaf5vOv6eJMa7fwwABqOi1R63SZOwSIok4XJ5CStnY2Dh27NgjU1JTXa1Z3PUKtha39VjWbTdRD5oKOBzPhyMYOKQyRA70GVWGLBzQMwCGrOD1Lpz+lcUTlwFAR77x9lWXP7z25p8sehEBGSJnnGCYpDoNqASGXJI/v/aL+9Pbnml46NntD81Izr/+1Dt1bhABIgY+sUdeICAAEKjaMTfUjrmhK/vq+7tveKdh8QUztyByOHi1xFDz/G4i19Jrg7+D7fk72xe7fvfYsq8gctfrNvVkUDmiCRAk9IbbFMA5H4oPAGDB9OFMDxuJuFlOAAmrmkAxFEW32/GzEORORgQFQL67lSgHwAEReQJRYywx0CMDkEpKkq4sjLFr5lZ+tiW31/XzgunUv3gcxAAFi8TguCJSgTsOCABK+Qa3ls3+t/sueuXaWbdv637v0XXLPeUyZANLmcNqcxS5pZHzz5myore4reDu5cxGQCIZ+LsISKQQBREpcogUkQ+ACEqwSLawsTu76typqydU3DS+/FsViYulzPZPspGaj2HCCn2TK2EmgUDjhuvnK8JTGAqGIuu2deUaAAhGuhEEAdDLrwAgBECMMK2+7/BBJyFDbgqbI9e55crC7tTGsBYT3FSgOIpDpqbBbdbn75MixZAJpgGAAqUxXeOmUj4AlNk1n6u//qqpN+3LbC14WY0bA/UgIEeBiADEUWNo9HvGQTjAYmi6fici58wGwGxxh+C24HFNxNtSzyByxkwiv7e4lzPbl1lkhmCBSofewnbBI30p8I/n/gYIBIWa6Cmun2Oo9TrdFbGpcbPaVylUxR3tf6uOn0mgRkC9AmDS2+vnnkMWBiDU6rg+EwAO0aqecl1ZfGn377Z2vuNLZ19ma3Pv7htO/SFD7ni5jNPlKw/6N13oaK5vfWXN/mfPrb28Njrl7abnf/3B9zmJa2d+zxKhPT0frtz9eMEvrGtZMbN8gePnX9392Nk1l0WMku58i6fc4I6S/B6nXSoAyr7V8OWy6IKQPtGRrTubf1YR/4KhVVQmvrR259XbG28PmVM60s8V3M6OnlVjS7fNqH1g/a5lvsxaxsTOzIuu7yhyYvbpgsff23lFXfIbmfwHHZnXBLPSuQ0I6HodnwQlwIBgXHwGAkiSnsojilOrLl+z5+cJI76l7cnTa78WNmv6V6RDgYAUoMh33QGqG1iE0BbmmVxUDg5wBcM2YSaXTrvZJ9+TDiDUJabNSi6oL5kNAJWRCVdPu2WMXTNQ77Uzv/fKvv8WXCeAz0++UTB9R/eGiSWzBdMW19/gyKJP/uzyC7oLzbtSG4nkF6d8c/HEZXkvu3TazfXxWUElCaP86qnLayJ1AHZF4gup7Kvd2dcYmqdULh+X/DqBqiq56oxTtAMdv0rl1lbEL6uvvHVny/2u11Zdeq2pVzV3/SmTf39c8huO3+L6XYwZ50x5dWfLvbtb74+FTj136qrdrQ8W3QOJ8DkTKr7bL/jxhzsxm82alim4+PlbN5xRvaQ9u3l86byJJfMfeGO+YC6q3kljFi2Z+QcAJPKHiBNIAARgvan7ip03azxGaKCos0ru1EOLRxgJPvoeeCI46IRPNhMzomzbyg/Gjy+/cULF8o9/v2FiXIEcBADnjrtyS/vq6RUL32962tZLF026I++mTC2xp+v5l7csc/wUogiIGfwBIAAOwFKdP+rt+BfGE0QFpk3ixhzdXtRfehAISJE8+NPnpBOQJDnYmyBSiiSRAsT+C5UiCYBEfX8HfvQXEQCoQfUMrjaw4URqwJgH/dB/XBJJAqXIA6BU7zst3U85Xqvjte5suafg7kvGlgAAkf9RJaCIAh+agjDgx4QAAIacgGZXXPTm3j+G9DIg/0DP+3Nqru3J73pv/89KrLJdnU/35DfMrb21tuxyzg7eQEyqN7+6p/NuWVhpCItkN7PPQ15rxr5OQEAOonnILfHgANEhRfzgIkSGg0oHX4iI2M83Hkb84Kj+4GqHvPURjiORt6v1vp2tPyblEOAZpzwVtqYDqEPNeP9SeljdPlL0pbCQAQLb1LJid/e6OdUXr2z4ybJ5fwSAt3b/dN3+ewwBOiqEfFlocmX8vIQ9XRcxUDnX3VHMr/HddSY6AsE2p4aj1yi/RbM/p4cvc/NrdOusf4Bdd57fTSB1MQYAPimFOaKsYuBfPrvlR3NrLm9oW6HIWTjpdgDY1/Xye3vu7CmsMzhw9ARTBoLBQGNgMDCDb2HEY9ckyv7Vza/kLGpEvlzMPK7ZF3JRNcrT730x+b4/R/FxjgEjS/QCAYEjc6t3Pnhh/Y3Pfbh8bHzOGXVfAwBf5vd0PXOg48lMYZ2idgGOjmBwsHk4bI6Nhy4oKblO16cUs89q5jTdnJfveVCzztGMOaOcjwEcRMwngpHu4+pLyRVbdna8Pr1y8Qtbbk5YNfMn3sb6VWfRbc05u1y/BcjTeNTSayxjImMhAJB+FxOlyjtQzPxWD12imXNPbhoaBsewtS7IxuTc7lyxIxmdvGbX3V29G2fXfLW29HPD30PK9mL2GZKtVmwZF2NP8jE8jm2346Ast0Jk7dkNm5t+QSpTGZuXjJ4VMcdrIs5QA1BKFT2/3XE+dIvrmMraoUVmOGDuJB9HwbFRAgADNmDAoKXyW1pSL2YKm0mlBSqNC53pGhMGj1hGXdg+17LP7L8Q/iHsx/8vjoOSj0Cg+p8gAQAg8jyZUuQy0ASPsoOWKScnx0hxDHuCDwcCAwyebVAAiKjpIjmoPNiZEWRsTvLxCWCkweT+raQB6KPDQy/FT+L4wI7roVg8QZ4gGb1P9A4jORNCDGNITnCcsFt+j4phXjUiUqkUEZmmObpGHGMsn8/7vh+NRkfdc/tKqa6urlgsdsRSUSwWA+s/uhrGOc9ms47jaJo2Gt+hUigUhqIEC4WClHJ0TZEAjLGgeX9vQY4ZiMg5H+oFEcLzvFGqkZVSo/R9XEQ0TLez0tikAYxe4YeR/P8AUBuK66IKwLEAAAAASUVORK5CYII=" alt="British Sugar" style="height: 50px; width: auto; object-fit: contain;">
+  </div>
+    <div class="logo-text">
+      <span class="main">Workspace Hub</span>
+      <span class="sub">British Sugar</span>
+    </div>
+  </div>
+  <button class="export-btn" id="exportBtn">
+    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path>
+      <polyline points="7 10 12 15 17 10"></polyline>
+      <line x1="12" y1="15" x2="12" y2="3"></line>
+    </svg>
+    Export Data
+  </button>
+</div>
+
+<!-- Export Modal -->
+<div id="exportModal" class="modal-overlay hidden">
+  <div class="modal">
+    <h2>Export Your Data</h2>
+    <p>Copy this JSON data and save it somewhere safe. You can use it to restore your workspace or share it with others.</p>
+    <textarea id="exportTextarea" readonly></textarea>
+    <div class="modal-actions">
+      <button class="btn-secondary" id="closeModal">Close</button>
+      <button class="btn-primary" id="copyBtn">Copy to Clipboard</button>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="page-header">
+    <h1>Your Apps</h1>
+    <p>Quick access to all your essential tools</p>
+  </div>
+
+  <div class="search-wrap">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+    <input type="text" id="searchInput" placeholder="Search your apps...">
+  </div>
+
+  <div id="categoriesContainer"></div>
+
+  <div id="addCategoryArea"></div>
+
+  <div class="footer">Hover over a card to edit or remove · Everything saves automatically</div>
+</div>
+
+<script>
+// ─── SVG helpers ────────────────────────────────────────────
+const SVG = {
+  plus: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/></svg>`,
+  x: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>`,
+  pencil: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>`,
+  trash: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 0 1-2 2H8a2 2 0 0 1-2-2L5 6"/><path d="M10 11v6"/><path d="M14 11v6"/><path d="M9 6V4a1 1 0 0 1 1-1h4a1 1 0 0 1 1 1v2"/></svg>`,
+  ext: `<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>`,
+  check: `<svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>`,
+  folder: `<svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/><line x1="12" y1="11" x2="12" y2="17"/><line x1="9" y1="14" x2="15" y2="14"/></svg>`,
+};
+
+// ─── Data & state ───────────────────────────────────────────
+const COLORS = ["#8BC53F","#7AB82E","#6AA61D","#5C941A","#4B7E15","#3B6E11","#F59E0B","#EF4444","#3B82F6","#8B5CF6"];
+const STORAGE_KEY = "workspace-hub-data";
+
+const DEFAULT_DATA = [
+  { id:"hr", name:"HR & People", emoji:"👥", apps:[
+    { id:1, name:"SuccessFactors", desc:"People Hub",        url:"https://performancemanager.successfactors.eu/sf/home?bplte_company=britishsugar&_s.crb=95xciufTHZwCzHYjKQSirdsvsM2zilknPWUDmjEX3Yo%3d", color:"#8BC53F" },
+    { id:2, name:"Dimensions",     desc:"Holiday Booking",   url:"https://britishsugar-sso.prd.mykronos.com/wfd/home", color:"#7AB82E" },
+    { id:1770152691218, name:"SAP Concur", desc:"Claim Expenses", url:"https://eu2.concursolutions.com/nui/signin?targetURL=%2Fhome", color:"#F59E0B" },
+  ]},
+  { id:"analytics", name:"Analytics & Data", emoji:"📊", apps:[
+    { id:3, name:"Seeq",           desc:"Trends & Analytics", url:"https://britishsugar.seeq.tech/",          color:"#6AA61D" },
+    { id:1770152509945, name:"Lost Opp", desc:"Lost Oppertunity Booking", url:"https://lop-prod.britishsugar.com/Operator", color:"#3B82F6" },
+    { id:1770152601565, name:"FTR", desc:"Lab Results", url:"https://ftr-app.azurewebsites.net/login", color:"#8BC53F" },
+    { id:1770152828271, name:"QF/Chemical app", desc:"Add QF/LED and chemicals data", url:"https://script.google.com/macros/s/AKfycbwLLQJntWsBaEiA7FMa-u2AplGdxW7tNjAXIV0cwByz0EKDIlVnyS9Qate2ip_dIMVS/exec", color:"#5C941A" },
+  ]},
+  { id:"general", name:"General", emoji:"📌", apps:[
+    { id:1770153056606, name:"HxGN", desc:"Create Work Orders", url:"https://eu1.eam.hxgnsmartcloud.com/web/base/logindisp?tenant=BRITISHSUGAR_PRD", color:"#EF4444" },
+    { id:1770153139586, name:"SIC", desc:"Short Interval Control", url:"https://abfoods.sharepoint.com/sites/bsu-cantleyteamssite/Lists/Cantley%20Performance%20Actions/Short%20Interval%20Control.aspx?viewid=227be9ec-2f19-4264-847d-27472793f812&env=WebViewList&OR=Teams-HL&CT=1733960021665&clickparams=eyJBcHBOYW1lIjoiVGVhbXMtRGVza3RvcCIsIkFwcFZlcnNpb24iOiI0OS8yNDExMDExNTcyMiIsIkhhc0ZlZGVyYXRlZFVzZXIiOmZhbHNlfQ%3D%3D", color:"#F59E0B" },
+    { id:1770153195640, name:"British Sugar Intranet", desc:"", url:"https://abfoods.sharepoint.com/sites/bsu-hub", color:"#7AB82E" },
+    { id:1770153282586, name:"Change Log", desc:"Plant change Log", url:"https://teams.microsoft.com/l/entity/26bc2873-6023-480c-a11b-76b66605ce8c/_djb2_msteams_prefix_2011203644?context=%7B%22channelId%22%3A%2219%3AyIxeEUzWyRK1PMTDiin__Or4MWFuK6Dhq2vAmFYv8741%40thread.tacv2%22%7D&tenantId=39c5be5d-2510-4eee-9ca0-197a6e89e482", color:"#6AA61D" },
+    { id:1770153316288, name:"Shift Logs", desc:"", url:"https://teams.microsoft.com/l/entity/com.microsoft.teamspace.tab.planner/_djb2_msteams_prefix_898003600?context=%7B%22channelId%22%3A%2219%3AyIxeEUzWyRK1PMTDiin__Or4MWFuK6Dhq2vAmFYv8741%40thread.tacv2%22%7D&tenantId=39c5be5d-2510-4eee-9ca0-197a6e89e482", color:"#8BC53F" },
+    { id:1770153412955, name:"Alcumus", desc:"Incident Reporting", url:"https://britishsugar.info-exchange.com/app/incidents/home", color:"#8B5CF6" },
+    { id:1770153448285, name:"Ideas App", desc:"", url:"https://teams.microsoft.com/l/entity/a6b63365-31a4-4f43-92ec-710b71557af9/_djb2_msteams_prefix_2569765742?context=%7B%22chatId%22%3A%2219%3A9f7c1791d44744eca1ec1c5b572a1d9f%40thread.v2%22%2C%22contextType%22%3A%22chat%22%7D&tenantId=39c5be5d-2510-4eee-9ca0-197a6e89e482", color:"#5C941A" },
+    { id:1770153572299, name:"Ops Chat", desc:"Operational Communications Chat", url:"https://teams.microsoft.com/l/chat/19:9f7c1791d44744eca1ec1c5b572a1d9f@thread.v2/conversations?context=%7B%22contextType%22%3A%22chat%22%7D", color:"#7AB82E" },
+  ] },
+];
+
+let categories = loadData();
+let addingTo      = null;
+let editingApp    = null;
+let addingCat     = false;
+
+function loadData() {
+  try {
+    const raw = localStorage.getItem(STORAGE_KEY);
+    return raw ? JSON.parse(raw) : JSON.parse(JSON.stringify(DEFAULT_DATA));
+  } catch { return JSON.parse(JSON.stringify(DEFAULT_DATA)); }
+}
+function saveData() { localStorage.setItem(STORAGE_KEY, JSON.stringify(categories)); }
+
+// ─── Export functionality ───────────────────────────────────
+document.getElementById('exportBtn').addEventListener('click', () => {
+  const data = localStorage.getItem(STORAGE_KEY) || JSON.stringify(categories, null, 2);
+  document.getElementById('exportTextarea').value = data;
+  document.getElementById('exportModal').classList.remove('hidden');
+});
+
+document.getElementById('closeModal').addEventListener('click', () => {
+  document.getElementById('exportModal').classList.add('hidden');
+});
+
+document.getElementById('copyBtn').addEventListener('click', () => {
+  const textarea = document.getElementById('exportTextarea');
+  textarea.select();
+  document.execCommand('copy');
+  
+  const btn = document.getElementById('copyBtn');
+  const originalText = btn.textContent;
+  btn.textContent = '✓ Copied!';
+  setTimeout(() => {
+    btn.textContent = originalText;
+  }, 2000);
+});
+
+document.getElementById('exportModal').addEventListener('click', (e) => {
+  if (e.target.id === 'exportModal') {
+    document.getElementById('exportModal').classList.add('hidden');
+  }
+});
+
+// ─── Render ─────────────────────────────────────────────────
+function render() {
+  const search = document.getElementById("searchInput").value.toLowerCase();
+
+  const filtered = categories.map(cat => ({
+    ...cat,
+    apps: cat.apps.filter(a => a.name.toLowerCase().includes(search) || a.desc.toLowerCase().includes(search))
+  })).filter(cat => cat.apps.length > 0 || !search);
+
+  document.getElementById("categoriesContainer").innerHTML = filtered.map(cat => renderCategory(cat)).join("");
+  renderAddCategoryArea();
+
+  document.querySelectorAll(".btn-add[data-cat]").forEach(btn => {
+    btn.addEventListener("click", () => { addingTo = (addingTo === btn.dataset.cat) ? null : btn.dataset.cat; render(); });
+  });
+  document.querySelectorAll(".btn-del-cat[data-cat]").forEach(btn => {
+    btn.addEventListener("click", () => { categories = categories.filter(c => c.id !== btn.dataset.cat); saveData(); render(); });
+  });
+  document.querySelectorAll(".app-card[data-cat][data-app]").forEach(card => {
+    card.addEventListener("click", (e) => {
+      if (e.target.closest(".btn-edit, .btn-del, .card-actions")) return;
+      const app = getApp(card.dataset.cat, card.dataset.app);
+      if (app) window.open(app.url, "_blank", "noopener,noreferrer");
+    });
+  });
+  document.querySelectorAll(".btn-edit[data-cat][data-app]").forEach(btn => {
+    btn.addEventListener("click", (e) => { e.stopPropagation(); editingApp = { catId: btn.dataset.cat, app: { ...getApp(btn.dataset.cat, btn.dataset.app) } }; render(); });
+  });
+  document.querySelectorAll(".btn-del[data-cat][data-app]").forEach(btn => {
+    btn.addEventListener("click", (e) => { e.stopPropagation(); removeApp(btn.dataset.cat, btn.dataset.app); });
+  });
+
+  const addForm = document.getElementById("addForm");
+  if (addForm) {
+    addForm.querySelector("#formName").addEventListener("input", e => formState.name = e.target.value);
+    addForm.querySelector("#formDesc").addEventListener("input", e => formState.desc = e.target.value);
+    addForm.querySelector("#formUrl").addEventListener("input", e => formState.url = e.target.value);
+    addForm.querySelector("#formUrl").addEventListener("keydown", e => { if (e.key === "Enter") submitAdd(); });
+    addForm.querySelectorAll(".color-dot").forEach(dot => {
+      dot.addEventListener("click", () => { formState.color = dot.dataset.color; render(); });
+    });
+    addForm.querySelector("#btnSubmitAdd").addEventListener("click", submitAdd);
+    addForm.querySelector("#btnCancelAdd").addEventListener("click", () => { addingTo = null; formState = { name:"", desc:"", url:"", color: COLORS[0] }; render(); });
+  }
+
+  const editForm = document.getElementById("editForm");
+  if (editForm && editingApp) {
+    editForm.querySelector("#editName").addEventListener("input", e => editingApp.app.name = e.target.value);
+    editForm.querySelector("#editDesc").addEventListener("input", e => editingApp.app.desc = e.target.value);
+    editForm.querySelector("#editUrl").addEventListener("input", e => editingApp.app.url = e.target.value);
+    editForm.querySelectorAll(".color-dot").forEach(dot => {
+      dot.addEventListener("click", () => { editingApp.app.color = dot.dataset.color; render(); });
+    });
+    editForm.querySelector("#btnSaveEdit").addEventListener("click", submitEdit);
+    editForm.querySelector("#btnCancelEdit").addEventListener("click", () => { editingApp = null; render(); });
+  }
+
+  const catFormEl = document.getElementById("catForm");
+  if (catFormEl) {
+    catFormEl.querySelector("#catEmoji").addEventListener("input", e => newCatState.emoji = e.target.value);
+    catFormEl.querySelector("#catName").addEventListener("input", e => newCatState.name = e.target.value);
+    catFormEl.querySelector("#catName").addEventListener("keydown", e => { if (e.key === "Enter") submitAddCat(); });
+    catFormEl.querySelector("#btnCreateCat").addEventListener("click", submitAddCat);
+    catFormEl.querySelector("#btnCancelCat").addEventListener("click", () => { addingCat = false; newCatState = { name:"", emoji:"📁" }; render(); });
+  }
+  const addCatBtn = document.getElementById("btnAddCat");
+  if (addCatBtn) addCatBtn.addEventListener("click", () => { addingCat = true; render(); });
+}
+
+function renderCategory(cat) {
+  const isAdding  = addingTo === cat.id;
+  const showDel   = cat.apps.length === 0;
+
+  return `
+  <div class="category">
+    <div class="cat-header">
+      <div class="cat-header-left">
+        <span class="emoji">${cat.emoji}</span>
+        <span class="name">${escHtml(cat.name)}</span>
+        <span class="count">${cat.apps.length}</span>
+      </div>
+      <div class="cat-header-right">
+        <button class="btn-add" data-cat="${cat.id}">${SVG.plus} Add</button>
+        ${showDel ? `<button class="btn-del-cat" data-cat="${cat.id}">${SVG.trash}</button>` : ""}
+      </div>
+    </div>
+
+    ${isAdding ? renderAddForm(cat.id) : ""}
+
+    <div class="cards-grid">
+      ${cat.apps.map(app => renderCard(cat.id, app)).join("")}
+    </div>
+  </div>`;
+}
+
+function renderCard(catId, app) {
+  if (editingApp && editingApp.catId === catId && editingApp.app.id === app.id) return renderEditCard(catId);
+
+  return `
+  <div class="app-card" data-cat="${catId}" data-app="${app.id}" style="--card-color:${app.color}">
+    <div class="card-actions">
+      <button class="btn-edit" data-cat="${catId}" data-app="${app.id}">${SVG.pencil}</button>
+      <button class="btn-del"  data-cat="${catId}" data-app="${app.id}">${SVG.trash}</button>
+    </div>
+    <div class="card-body">
+      <div class="card-icon" style="background:linear-gradient(135deg,${app.color},${app.color}dd); box-shadow:0 3px 10px ${app.color}40;">
+        ${escHtml(app.name.charAt(0).toUpperCase())}
+      </div>
+      <div class="card-text">
+        <div class="app-name">${escHtml(app.name)}</div>
+        ${app.desc ? `<div class="app-desc">${escHtml(app.desc)}</div>` : ""}
+      </div>
+      <div class="card-ext">${SVG.ext}</div>
+    </div>
+    <div class="card-url">${escHtml(app.url.replace(/^https?:\/\//,""))}</div>
+  </div>`;
+}
+
+function renderEditCard(catId) {
+  const a = editingApp.app;
+  return `
+  <div class="app-card editing" id="editForm">
+    <input style="padding:10px 12px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:8px;color:#2d3748;font-size:14px;outline:none;margin-bottom:8px;" id="editName" value="${escHtml(a.name)}" placeholder="Name" />
+    <input style="padding:10px 12px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:8px;color:#2d3748;font-size:14px;outline:none;margin-bottom:8px;" id="editDesc" value="${escHtml(a.desc)}" placeholder="Description" />
+    <input style="padding:10px 12px;background:#f8f9fa;border:1px solid #e2e8f0;border-radius:8px;color:#2d3748;font-size:14px;outline:none;margin-bottom:10px;" id="editUrl" value="${escHtml(a.url)}" placeholder="URL" />
+    <div class="color-row" style="margin-bottom:10px;">${COLORS.map(c=>`<div class="color-dot ${a.color===c?"active":""}" data-color="${c}" style="background:${c}"></div>`).join("")}</div>
+    <div class="edit-actions">
+      <button class="btn-primary" id="btnSaveEdit">${SVG.check} Save</button>
+      <button class="btn-cancel" id="btnCancelEdit">${SVG.x}</button>
+    </div>
+  </div>`;
+}
+
+function renderAddForm(catId) {
+  return `
+  <div class="form-panel" id="addForm">
+    <div class="form-row">
+      <div class="form-group f-name">
+        <label>App Name *</label>
+        <input id="formName" value="${escHtml(formState.name)}" placeholder="e.g. Slack" />
+      </div>
+      <div class="form-group f-desc">
+        <label>Description</label>
+        <input id="formDesc" value="${escHtml(formState.desc)}" placeholder="e.g. Messaging" />
+      </div>
+      <div class="form-group f-url">
+        <label>URL *</label>
+        <input id="formUrl" value="${escHtml(formState.url)}" placeholder="e.g. slack.com" />
+      </div>
+      <div style="display:flex;gap:8px;align-items:flex-end;">
+        <div class="color-row">${COLORS.map(c=>`<div class="color-dot ${formState.color===c?"active":""}" data-color="${c}" style="background:${c}"></div>`).join("")}</div>
+        <button class="btn-primary" id="btnSubmitAdd">Add</button>
+        <button class="btn-cancel" id="btnCancelAdd">${SVG.x}</button>
+      </div>
+    </div>
+  </div>`;
+}
+
+function renderAddCategoryArea() {
+  const el = document.getElementById("addCategoryArea");
+  if (addingCat) {
+    el.innerHTML = `
+    <div class="cat-form" id="catForm">
+      <input class="emoji-input" id="catEmoji" value="${escHtml(newCatState.emoji)}" placeholder="📁" />
+      <input class="name-input" id="catName" value="${escHtml(newCatState.name)}" placeholder="Category name" />
+      <button class="btn-primary" id="btnCreateCat">Create</button>
+      <button class="btn-cancel" id="btnCancelCat">${SVG.x}</button>
+    </div>`;
+  } else {
+    el.innerHTML = `<button class="btn-add-cat" id="btnAddCat">${SVG.folder} Add Category</button>`;
+  }
+}
+
+let formState   = { name:"", desc:"", url:"", color: COLORS[0] };
+let newCatState = { name:"", emoji:"📁" };
+
+function submitAdd() {
+  if (!formState.name || !formState.url) return;
+  const url = formState.url.startsWith("http") ? formState.url : "https://" + formState.url;
+  const cat = categories.find(c => c.id === addingTo);
+  if (cat) cat.apps.push({ id: Date.now(), name: formState.name, desc: formState.desc, url, color: formState.color });
+  saveData();
+  addingTo  = null;
+  formState = { name:"", desc:"", url:"", color: COLORS[0] };
+  render();
+}
+
+function submitEdit() {
+  if (!editingApp) return;
+  const url = editingApp.app.url.startsWith("http") ? editingApp.app.url : "https://" + editingApp.app.url;
+  const cat = categories.find(c => c.id === editingApp.catId);
+  if (cat) {
+    const idx = cat.apps.findIndex(a => a.id === editingApp.app.id);
+    if (idx > -1) cat.apps[idx] = { ...editingApp.app, url };
+  }
+  saveData();
+  editingApp = null;
+  render();
+}
+
+function removeApp(catId, appId) {
+  const cat = categories.find(c => c.id === catId);
+  if (cat) cat.apps = cat.apps.filter(a => String(a.id) !== String(appId));
+  saveData();
+  render();
+}
+
+function submitAddCat() {
+  if (!newCatState.name) return;
+  categories.push({ id: Date.now().toString(), name: newCatState.name, emoji: newCatState.emoji, apps: [] });
+  saveData();
+  addingCat   = false;
+  newCatState = { name:"", emoji:"📁" };
+  render();
+}
+
+function getApp(catId, appId) {
+  const cat = categories.find(c => c.id === catId);
+  return cat ? cat.apps.find(a => String(a.id) === String(appId)) : null;
+}
+
+function escHtml(s) { return String(s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+
+document.getElementById("searchInput").addEventListener("input", render);
+render();
+</script>
+
+</body>
+</html>
